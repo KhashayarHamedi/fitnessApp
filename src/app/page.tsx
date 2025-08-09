@@ -8,6 +8,7 @@ import Link from "next/link";
 // i18n removed for now
 // Transformation visuals removed per request
 import { ApplyForm } from "@/components/ApplyForm";
+import { FadeUp, Stagger, ParallaxY } from "@/components/animations/Reveal";
 
 const brand = {
   orange: "#FF6B35",
@@ -25,13 +26,13 @@ export default function Home() {
   return (
     <main>
       {/* HERO */}
-      <section className="relative min-h-[92vh] overflow-hidden bg-parallax">
+      <section className="relative min-h-screen overflow-hidden bg-parallax flex items-center">
         {/* Clean black background with subtle parallax gradient */}
 
         <div className="spotlight-overlay absolute inset-0 -z-10" />
 
-        <div className="container grid place-items-center py-24">
-          <div className="flex flex-col items-center text-center gap-5">
+        <div className="container grid place-items-center py-20 sm:py-24">
+          <Stagger className="flex flex-col items-center text-center gap-5">
             <div className="relative">
               <motion.h1
                 initial="hidden"
@@ -51,29 +52,29 @@ export default function Home() {
               </motion.h1>
             </div>
 
-            <motion.p className="max-w-3xl text-base sm:text-lg text-white/80"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-            >
+            <FadeUp delay={0.05} className="max-w-3xl text-base sm:text-lg text-white/80">
               Elite coaching that combines training, mindset and life systems. Results measured in body, mind and life.
-            </motion.p>
+            </FadeUp>
 
             <div className="flex flex-col items-center gap-1 text-white/70">
-              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Based in Berlin, Germany 🇩🇪</div>
-              <div className="text-xs text-white/60">Serving clients globally from Berlin • European time zone advantage</div>
+              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Based in Berlin, Germany, serving clients internationally</div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <Link href="/consultation" className="btn-primary btn-neon btn-ripple tilt-3d cta-pulse neon-ring">Book Your Consultation</Link>
-            </div>
+            <FadeUp delay={0.1} className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <Link href="/consultation" className="btn-primary btn-neon btn-ripple tilt-3d cta-pulse neon-ring consultation-glow">Book Your Consultation</Link>
+            </FadeUp>
 
             {/* Transformation visual removed */}
 
             {/* Trust bar moved to dedicated Stats section */}
+          </Stagger>
+        </div>
+        {/* Scroll indicator */}
+        <div aria-hidden className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-xs">
+          <div className="relative h-6 w-4 rounded-full border border-white/30">
+            <span className="absolute left-1/2 top-1 h-1 w-1 -translate-x-1/2 rounded-full bg-white/70 scroll-dot" />
           </div>
         </div>
-        {/* Removed globe/background imagery for clean black background */}
       </section>
 
       {/* STATS SECTION */}
@@ -98,20 +99,32 @@ export default function Home() {
       {/* STORY */}
       <section className="container py-24 border-t border-white/10" id="stories">
         <div className="grid gap-10 md:grid-cols-2">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">From 17-Year-Old Energy to Global Transformation Coach</h2>
-            <p className="text-white/80">
-              I’m 32 now. I started at 17 with endless natural energy and a drive to understand my body. No shortcuts, no cheats. Along the way I had ups and downs—injuries, setbacks, and life changes—but each season taught me how much of this journey is mental. My philosophy is simple: 90% is mindset, not external difficulties. I coach people to build sustainable habits, regain confidence, and lead with clarity.
-            </p>
-            <p className="text-white/80">
-              I’ve coached and trained across countries and cultures: Iran, Turkey, UAE, Germany, Switzerland, Czech Republic, Budapest—and clients from many more. This global perspective helps me adapt to your culture, schedule, and reality while holding you to a high standard.
-            </p>
+          <ParallaxY className="space-y-4">
+            <h2 className="headline-glow text-2xl sm:text-3xl md:text-4xl font-semibold">From a Dusty Tehran Gym to Transforming Lives Across 25 Countries</h2>
+            <div className="space-y-4 text-white/85 leading-relaxed">
+              <p>At 17, I was just another kid in a dusty Tehran gym, staring at faded posters of bodybuilders I'd never heard of. No YouTube. No Instagram coaches. Just me, some rusty weights, and a burning question: "What am I actually capable of?"</p>
+              <p>The first year nearly broke me. Injuries that made me question everything. Setbacks that felt like failures. But somewhere in that struggle, I discovered something that would change everything: the real battle wasn't in my muscles - it was in my mind.</p>
+              <p><strong>90% of transformation happens between your ears.</strong> The other 10%? That's just showing up.</p>
+              <p>I spent the next decade obsessing over this truth. Gym to parkour to CrossFit - each sport teaching me something new about the psychology of breakthrough. Every injury became a lesson. Every plateau became a puzzle to solve.</p>
+              <p>But the real education came from listening. Friends in Tehran sharing their struggles. Clients in Dubai fighting their demons. People in Berlin, Munich, Hamburg - all wrestling with the same internal enemy: the voice that says "you can't."</p>
+              <p>That's when it clicked. This wasn't about fitness. This was about rewiring the human operating system.</p>
+              <p>Today, I'm NASM-certified and have guided transformations across 25+ countries. But my credentials don't matter as much as this: I've been in your exact position - staring at yourself in the mirror, wondering if real change is even possible.</p>
+              <p>The answer is yes. But not the way you think.</p>
+              <p>I've lost friends to addiction, depression, and the slow suicide of giving up on themselves. I've seen potential crushed by the weight of "I'm not good enough." That's why this became my life's work.</p>
+              <p>I don't train bodies. I don't count reps. I don't sell you meal plans.</p>
+              <p>I do something far more powerful: I show you who you really are when the excuses stop talking.</p>
+              <p>From a confused 17-year-old in Tehran to coaching transformations across continents - my journey taught me that geography doesn't matter, background doesn't matter, starting point doesn't matter.</p>
+              <p>What matters is this moment. Right now. When you decide that the person you're becoming is more important than the person you've been.</p>
+              <p>This isn't just fitness. This isn't just coaching.</p>
+              <p>This is about discovering the version of yourself that's been waiting your whole life to finally meet you.</p>
+              <p><strong>Ready?</strong></p>
+            </div>
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/80">
               <Badge icon={<Award className="h-4 w-4" />} label="NASM Certified" />
               <Badge icon={<Brain className="h-4 w-4" />} label="Mindset-first Philosophy" />
               <Badge icon={<Dumbbell className="h-4 w-4" />} label="Sustainable Habit Building" />
             </div>
-          </div>
+          </ParallaxY>
           <div className="relative">
             <div className="aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-4">
               <HealthFacts />
@@ -127,9 +140,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold">Choose Your Path</h2>
             <p className="text-white/80">Custom transformation programs starting at €30/month. Investment varies based on your goals — consultation first.</p>
           </div>
-          <div className="hidden items-center gap-2 text-sm text-white/60 sm:flex">
-            <Languages className="h-4 w-4" /> Multi-language ready
-          </div>
+          
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -347,7 +358,8 @@ function Word({ text }: { text: string }) {
       initial={{ opacity: 0, scale: 0.6, y: 8 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className="animated-gradient-text neon-glitch neon-cycle inline-block"
+      className="cyber-glitch animated-gradient-text neon-glitch neon-cycle inline-block"
+      data-text={text}
     >
       {text}
     </motion.span>
@@ -379,7 +391,7 @@ function ProgramCard({
   popular?: boolean;
 }) {
   return (
-    <div className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm">
+    <div className="neon-card relative rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm">
       {popular && (
         <div className="absolute -top-3 right-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs text-white/80">
           Most Popular
@@ -399,7 +411,7 @@ function ProgramCard({
           </li>
         ))}
       </ul>
-      <Button className="w-full" onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}>{cta}</Button>
+      {/* CTA intentionally removed per request */}
     </div>
   );
 }

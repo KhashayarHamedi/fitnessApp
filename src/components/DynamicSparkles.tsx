@@ -41,7 +41,7 @@ export function DynamicSparkles() {
   if (!sparks) return null;
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden sparkles-pan">
       {sparks.map((s) => (
         <span
           key={s.key}

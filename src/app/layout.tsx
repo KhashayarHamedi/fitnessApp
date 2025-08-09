@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { ClientHeader } from "@/components/ClientHeader";
 import { FactTicker } from "@/components/FactTicker";
 import { DynamicSparkles } from "@/components/DynamicSparkles";
+import { BackgroundShapes } from "@/components/BackgroundShapes";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { Inter, JetBrains_Mono, Anton } from "next/font/google";
+import { Inter, JetBrains_Mono, Anton, Black_Ops_One } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
 // i18n removed for now
@@ -18,7 +19,7 @@ const fontMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const fontDisplay = Anton({
+const fontDisplay = Black_Ops_One({
   weight: "400",
   variable: "--font-display",
   subsets: ["latin"],
@@ -58,6 +59,7 @@ export default function RootLayout({
       <body className={`${fontSans.variable} ${fontMono.variable} ${fontDisplay.variable} antialiased`}>
         <ClientHeader />
         <ScrollProgress />
+        <BackgroundShapes />
         <DynamicSparkles />
         <div className="pt-14">{children}</div>
         <FactTicker />

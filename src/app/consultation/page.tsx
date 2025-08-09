@@ -75,6 +75,9 @@ export default function ConsultationPage() {
         {status === "error" && (
           <div className="mt-4 rounded-md border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">Something went wrong. Please try again, or email officialkhashayar@gmail.com.</div>
         )}
+        <div className="mt-6 flex justify-center">
+          <a href="/" className="btn-ghost">← Return to Home</a>
+        </div>
       </div>
     </main>
   );
