@@ -281,110 +281,120 @@ function GradientOverlay() {
 
 function AnimatedTitle({ text }: { text: string }) {
   return (
-    <div className="relative logo-3d">
-      {/* Multiple Shadow Layers for Depth */}
-      <h1 className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black/30 transform translate-x-3 translate-y-3 blur-md">
-        {text}
-      </h1>
-      <h1 className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black/20 transform translate-x-1 translate-y-1 blur-sm">
-        {text}
-      </h1>
-      
-      {/* Main 3D Text */}
-      <h1 className="relative text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight logo-3d-text logo-3d-glow">
-        <motion.span
-          initial="hidden"
-          animate="show"
-          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.02 } } }}
+    <div className="logo-3d-container">
+      <div className="relative logo-3d">
+        {/* Multiple Shadow Layers for Depth */}
+        <h1 className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black/40 transform translate-x-4 translate-y-4 blur-lg">
+          {text}
+        </h1>
+        <h1 className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black/25 transform translate-x-2 translate-y-2 blur-md">
+          {text}
+        </h1>
+        <h1 className="absolute inset-0 text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black/15 transform translate-x-1 translate-y-1 blur-sm">
+          {text}
+        </h1>
+        
+        {/* Main 3D Text */}
+        <h1 className="relative text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight logo-3d-text logo-3d-glow">
+          <motion.span
+            initial="hidden"
+            animate="show"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.03 } } }}
+          >
+            {text.split("").map((ch, i) => (
+              <motion.span
+                key={i}
+                className="logo-3d-char relative"
+                data-char={ch === " " ? "\u00A0" : ch}
+                variants={{ 
+                  hidden: { opacity: 0, y: 50, rotateX: -90, scale: 0.5, rotateY: -45 }, 
+                  show: { opacity: 1, y: 0, rotateX: 0, scale: 1, rotateY: 0 } 
+                }}
+                transition={{ 
+                  duration: 1.2, 
+                  ease: "easeOut",
+                  delay: i * 0.05
+                }}
+                whileHover={{
+                  y: -15,
+                  scale: 1.25,
+                  rotateX: 30,
+                  rotateY: 15,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+              >
+                {ch === " " ? "\u00A0" : ch}
+                
+                {/* 3D Highlight Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent opacity-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.5, 0] }}
+                  transition={{
+                    duration: 3,
+                    delay: i * 0.1 + 2,
+                    repeat: Infinity,
+                    repeatDelay: 5
+                  }}
+                />
+                
+                {/* 3D Side Highlights */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/40 opacity-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 0.3, 0] }}
+                  transition={{
+                    duration: 4,
+                    delay: i * 0.1 + 3,
+                    repeat: Infinity,
+                    repeatDelay: 6
+                  }}
+                />
+              </motion.span>
+            ))}
+          </motion.span>
+        </h1>
+        
+        {/* Enhanced Glow Effects */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/40 via-purple-500/30 to-pink-500/40 blur-5xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-indigo-500/30 blur-4xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-tl from-yellow-500/20 via-orange-500/15 to-red-500/20 blur-3xl -z-10" />
+        
+        {/* 3D Border and Depth Effects */}
+        <div className="absolute inset-0 border-3 border-white/40 rounded-2xl transform translate-x-3 translate-y-3" />
+        <div className="absolute inset-0 border-2 border-white/20 rounded-2xl transform translate-x-2 translate-y-2" />
+        <div className="absolute inset-0 border border-white/10 rounded-2xl transform translate-x-1 translate-y-1" />
+        
+        {/* Floating Particles Effect */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3 }}
         >
-          {text.split("").map((ch, i) => (
-            <motion.span
+          {[...Array(8)].map((_, i) => (
+            <motion.div
               key={i}
-              className="logo-3d-char relative"
-              variants={{ 
-                hidden: { opacity: 0, y: 30, rotateX: -90, scale: 0.8 }, 
-                show: { opacity: 1, y: 0, rotateX: 0, scale: 1 } 
+              className="absolute w-1.5 h-1.5 bg-white/50 rounded-full"
+              style={{
+                left: `${15 + i * 12}%`,
+                top: `${25 + (i % 3) * 25}%`
               }}
-              transition={{ 
-                duration: 0.8, 
-                ease: "easeOut",
-                delay: i * 0.04
+              animate={{
+                y: [0, -30, 0],
+                x: [0, (Math.random() - 0.5) * 20, 0],
+                opacity: [0.3, 0.9, 0.3],
+                scale: [1, 2, 1]
               }}
-              whileHover={{
-                y: -8,
-                scale: 1.15,
-                rotateX: 15,
-                transition: { duration: 0.3, ease: "easeOut" }
+              transition={{
+                duration: 4 + i * 0.8,
+                repeat: Infinity,
+                delay: i * 0.4
               }}
-            >
-              {ch === " " ? "\u00A0" : ch}
-              
-              {/* 3D Highlight Effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-transparent opacity-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.4, 0] }}
-                transition={{
-                  duration: 2.5,
-                  delay: i * 0.1 + 1.5,
-                  repeat: Infinity,
-                  repeatDelay: 4
-                }}
-              />
-              
-              {/* 3D Side Highlights */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-white/30 via-transparent to-white/30 opacity-0"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.2, 0] }}
-                transition={{
-                  duration: 3,
-                  delay: i * 0.1 + 2,
-                  repeat: Infinity,
-                  repeatDelay: 5
-                }}
-              />
-            </motion.span>
+            />
           ))}
-        </motion.span>
-      </h1>
-      
-      {/* Enhanced Glow Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/20 to-pink-500/30 blur-4xl -z-10" />
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-blue-500/15 to-indigo-500/20 blur-3xl -z-10" />
-      
-      {/* 3D Border and Depth Effects */}
-      <div className="absolute inset-0 border-2 border-white/30 rounded-xl transform translate-x-2 translate-y-2" />
-      <div className="absolute inset-0 border border-white/10 rounded-xl transform translate-x-1 translate-y-1" />
-      
-      {/* Floating Particles Effect */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-      >
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white/40 rounded-full"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${30 + (i % 2) * 40}%`
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.4, 0.8, 0.4],
-              scale: [1, 1.5, 1]
-            }}
-            transition={{
-              duration: 3 + i * 0.5,
-              repeat: Infinity,
-              delay: i * 0.3
-            }}
-          />
-        ))}
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 }
