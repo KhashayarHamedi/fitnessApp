@@ -105,22 +105,22 @@ export default function Home() {
           <ParallaxY className="space-y-4">
             <h2 className="headline-glow text-2xl sm:text-3xl md:text-4xl font-semibold">{t('story_title')}</h2>
             <div className="space-y-4 text-white/85 leading-relaxed">
-              <p>At 17, I was just another kid in a dusty Tehran gym, staring at faded posters of bodybuilders I'd never heard of. No YouTube. No Instagram coaches. Just me, some rusty weights, and a burning question: "What am I actually capable of?"</p>
-              <p>The first year nearly broke me. Injuries that made me question everything. Setbacks that felt like failures. But somewhere in that struggle, I discovered something that would change everything: the real battle wasn't in my muscles - it was in my mind.</p>
-              <p><strong>90% of transformation happens between your ears.</strong> The other 10%? That's just showing up.</p>
-              <p>I spent the next decade obsessing over this truth. Gym to parkour to CrossFit - each sport teaching me something new about the psychology of breakthrough. Every injury became a lesson. Every plateau became a puzzle to solve.</p>
-              <p>But the real education came from listening. Friends in Tehran sharing their struggles. Clients in Dubai fighting their demons. People in Berlin, Munich, Hamburg - all wrestling with the same internal enemy: the voice that says "you can't."</p>
-              <p>That's when it clicked. This wasn't about fitness. This was about rewiring the human operating system.</p>
-              <p>Today, I'm NASM-certified and have guided transformations across 25+ countries. But my credentials don't matter as much as this: I've been in your exact position - staring at yourself in the mirror, wondering if real change is even possible.</p>
-              <p>The answer is yes. But not the way you think.</p>
-              <p>I've lost friends to addiction, depression, and the slow suicide of giving up on themselves. I've seen potential crushed by the weight of "I'm not good enough." That's why this became my life's work.</p>
-              <p>I don't train bodies. I don't count reps. I don't sell you meal plans.</p>
-              <p>I do something far more powerful: I show you who you really are when the excuses stop talking.</p>
-              <p>From a confused 17-year-old in Tehran to coaching transformations across continents - my journey taught me that geography doesn't matter, background doesn't matter, starting point doesn't matter.</p>
-              <p>What matters is this moment. Right now. When you decide that the person you're becoming is more important than the person you've been.</p>
-              <p>This isn't just fitness. This isn't just coaching.</p>
-              <p>This is about discovering the version of yourself that's been waiting your whole life to finally meet you.</p>
-              <p><strong>Ready?</strong></p>
+              <p>{t('story_paragraph_1')}</p>
+              <p>{t('story_paragraph_2')}</p>
+              <p><strong>{t('story_paragraph_3')}</strong></p>
+              <p>{t('story_paragraph_4')}</p>
+              <p>{t('story_paragraph_5')}</p>
+              <p>{t('story_paragraph_6')}</p>
+              <p>{t('story_paragraph_7')}</p>
+              <p>{t('story_paragraph_8')}</p>
+              <p>{t('story_paragraph_9')}</p>
+              <p>{t('story_paragraph_10')}</p>
+              <p>{t('story_paragraph_11')}</p>
+              <p>{t('story_paragraph_12')}</p>
+              <p>{t('story_paragraph_13')}</p>
+              <p>{t('story_paragraph_14')}</p>
+              <p>{t('story_paragraph_15')}</p>
+              <p><strong>{t('story_paragraph_16')}</strong></p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/80">
               <Badge icon={<Award className="h-4 w-4" />} label={t('nasm_certified')} />
@@ -230,11 +230,11 @@ export default function Home() {
       <section className="container py-24 border-t border-white/10" id="testimonials">
         <h2 className="mb-6 text-3xl font-semibold">{t('testimonials_title')}</h2>
         <div className="grid gap-6 md:grid-cols-3">
-          <Testimonial name="Sarah" meta="28, Marketing Manager — Germany" text="Kash helped me realize my anxiety was blocking my fitness progress. His approach isn't just about workouts - it's about changing your whole mindset. I finally feel confident in my own skin." />
-          <Testimonial name="Ahmad" meta="35, Software Engineer — Iran" text="Working with Kash remotely was amazing. He understood my Persian background and work culture. Lost 15kg but more importantly, gained mental clarity I never had before." />
+          <Testimonial name="Leni" meta="28, Marketing Manager — Germany" text="Kash helped me realize my anxiety was blocking my fitness progress. His approach isn't just about workouts - it's about changing your whole mindset. I finally feel confident in my own skin." />
+          <Testimonial name="Sepehr" meta="35, Software Engineer — Iran" text="Working with Kash remotely was amazing. He understood my Persian background and work culture. Lost 15kg but more importantly, gained mental clarity I never had before." />
           <Testimonial name="Maria" meta="42, Teacher — Spain" text="After years of trying different coaches, Kash was the first to ask about my emotional relationship with food. The life coaching aspect changed everything for me." />
-          <Testimonial name="James" meta="25, Student — UK" text="Kash's energy is infectious. Even through video calls, his motivation kept me going when I wanted to quit. He gets that fitness is 90% mental." />
-          <Testimonial name="Fatima" meta="38, Nurse — Italy" text="The cultural sensitivity matters so much. Kash adapted everything to my schedule and religious practices. Finally, a coach who gets it." />
+          <Testimonial name="Henry" meta="25, Student — UK" text="Kash's energy is infectious. Even through video calls, his motivation kept me going when I wanted to quit. He gets that fitness is 90% mental." />
+          <Testimonial name="Bianca" meta="38, Nurse — Italy" text="The cultural sensitivity matters so much. Kash adapted everything to my schedule and religious practices. Finally, a coach who gets it." />
         </div>
       </section>
 
