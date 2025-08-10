@@ -15,6 +15,7 @@ import {
   Clock,
   Trophy
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FormData {
   emotionalHook: string;
@@ -40,10 +41,10 @@ const steps = [
 ];
 
 const emotionalOptions = [
-  { value: "restart", icon: "🔄", text: "Tired of starting over" },
-  { value: "ready", icon: "⚡", text: "Ready for real change" },
-  { value: "lost", icon: "🗺️", text: "Lost and need direction" },
-  { value: "failed", icon: "💔", text: "Nothing has worked" }
+  { value: "restart", icon: "🔄", text: "tired_restart" },
+  { value: "ready", icon: "⚡", text: "ready_change" },
+  { value: "lost", icon: "🗺️", text: "lost_direction" },
+  { value: "failed", icon: "💔", text: "nothing_worked" }
 ];
 
 const obstacles = [
@@ -65,6 +66,7 @@ const commitmentOptions = [
 
 
 export function InteractiveConsultation() {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     emotionalHook: '',
@@ -373,7 +375,7 @@ export function InteractiveConsultation() {
               {/* Step 1: Emotional Hook */}
               {currentStep === 1 && (
                 <div className="text-center">
-                  <h2 className="text-3xl font-bold text-white mb-8">What brought you here today?</h2>
+                  <h2 className="text-3xl font-bold text-white mb-8">{t('step_1_title')}</h2>
                   <div className="grid grid-cols-2 gap-4">
                     {emotionalOptions.map((option) => (
                       <motion.div
@@ -388,7 +390,7 @@ export function InteractiveConsultation() {
                         }`}
                       >
                         <div className="text-4xl mb-3">{option.icon}</div>
-                        <p className="text-white font-medium">{option.text}</p>
+                        <p className="text-white font-medium">{t(option.text)}</p>
                       </motion.div>
                     ))}
                   </div>

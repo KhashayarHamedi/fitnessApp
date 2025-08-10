@@ -4,6 +4,7 @@ import { FactTicker } from "@/components/FactTicker";
 import { DynamicSparkles } from "@/components/DynamicSparkles";
 import { BackgroundShapes } from "@/components/BackgroundShapes";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Inter, JetBrains_Mono, Anton, Black_Ops_One } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site";
@@ -54,16 +55,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${fontSans.variable} ${fontMono.variable} ${fontDisplay.variable} antialiased`}>
-        <ClientHeader />
-        <ScrollProgress />
-        <BackgroundShapes />
-        <DynamicSparkles />
-        <div className="pt-14">{children}</div>
-        <FactTicker />
-      </body>
-    </html>
-  );
+              return (
+              <html lang="en">
+                <body className={`${fontSans.variable} ${fontMono.variable} ${fontDisplay.variable} antialiased`}>
+                  <LanguageProvider>
+                    <ClientHeader />
+                    <ScrollProgress />
+                    <BackgroundShapes />
+                    <DynamicSparkles />
+                    <div className="pt-14">{children}</div>
+                    <FactTicker />
+                  </LanguageProvider>
+                </body>
+              </html>
+            );
 }

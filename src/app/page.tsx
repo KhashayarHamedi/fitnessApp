@@ -5,6 +5,7 @@ import { motion, useInView, useMotionValue, useSpring, useTransform, animate } f
 import { Globe2, CheckCircle2, MapPin, Star, Languages, Brain, Dumbbell, Sparkles, UserRoundCheck, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 // i18n removed for now
 // Transformation visuals removed per request
 import { ApplyForm } from "@/components/ApplyForm";
@@ -16,13 +17,15 @@ const brand = {
 };
 
 const statItems = [
-  { label: "Clients Transformed", value: 105, suffix: "+" },
-  { label: "Countries Reached", value: 25, suffix: "+" },
-  { label: "Age Range", value: "16–65", suffix: " yrs" },
-  { label: "Success Rate", value: 94, suffix: "%" },
+  { label: "clients_transformed", value: 105, suffix: "+" },
+  { label: "countries_reached", value: 25, suffix: "+" },
+  { label: "age_range", value: "16–65", suffix: " yrs" },
+  { label: "success_rate", value: 94, suffix: "%" },
 ];
 
 export default function Home() {
+  const { t } = useLanguage();
+  
   return (
     <main>
       {/* HERO */}
@@ -53,15 +56,15 @@ export default function Home() {
             </div>
 
             <FadeUp delay={0.05} className="max-w-3xl text-base sm:text-lg text-white/80">
-              Elite coaching that combines training, mindset and life systems. Results measured in body, mind and life.
+              {t('hero_subtitle')}
             </FadeUp>
 
             <div className="flex flex-col items-center gap-1 text-white/70">
-              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> Based in Berlin, Germany, serving clients internationally</div>
+              <div className="flex items-center gap-2"><MapPin className="h-4 w-4" /> {t('location_text')}</div>
             </div>
 
             <FadeUp delay={0.1} className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <Link href="/consultation" className="btn-primary btn-neon btn-ripple tilt-3d cta-pulse neon-ring consultation-glow">Book Your Consultation</Link>
+              <Link href="/consultation" className="btn-primary btn-neon btn-ripple tilt-3d cta-pulse neon-ring consultation-glow">{t('book_consultation')}</Link>
             </FadeUp>
 
             {/* Transformation visual removed */}
@@ -88,7 +91,7 @@ export default function Home() {
         >
           {statItems.map((s) => (
             <motion.div key={s.label} variants={{ hidden: { opacity: 0, y: 8 }, show: { opacity: 1, y: 0 } }}>
-              <Counter label={s.label} value={s.value} suffix={s.suffix} />
+              <Counter label={t(s.label)} value={s.value} suffix={s.suffix} />
             </motion.div>
           ))}
         </motion.div>
