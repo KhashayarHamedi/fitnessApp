@@ -1,0 +1,293 @@
+/* GlowingLogo Component Styles */
+
+.glowing-logo-container {
+  position: relative;
+  display: inline-block;
+  --glow-color-1: #FFB347;
+  --glow-color-2: #FFD700;
+  --glow-color-3: #FF1493;
+  --glow-intensity: 0.75;
+  
+  /* Ensure container sizes to logo dimensions */
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Mesh gradient background layer */
+.mesh-gradient-bg {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: 
+    radial-gradient(circle at 30% 20%, var(--glow-color-1), transparent 50%),
+    radial-gradient(circle at 70% 80%, var(--glow-color-2), transparent 50%),
+    radial-gradient(circle at 50% 50%, var(--glow-color-3), transparent 60%),
+    conic-gradient(from 0deg, var(--glow-color-1), var(--glow-color-2), var(--glow-color-3), var(--glow-color-1));
+  filter: blur(45px);
+  opacity: calc(var(--glow-intensity) * 0.6);
+  animation: meshRotate 25s linear infinite, meshBreathing 12s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Outer glow ring */
+.outer-glow-ring {
+  position: absolute;
+  top: -12%;
+  left: -12%;
+  width: 124%;
+  height: 124%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--glow-color-1),
+    var(--glow-color-2),
+    var(--glow-color-3),
+    var(--glow-color-1)
+  );
+  animation: ringRotate 20s linear infinite;
+  z-index: 0;
+}
+
+.outer-glow-ring::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #000;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Logo image with bloom effect */
+.glowing-logo {
+  position: relative;
+  z-index: 10;
+  filter: 
+    drop-shadow(0 0 calc(25px * var(--glow-intensity)) var(--glow-color-1))
+    drop-shadow(0 0 calc(35px * var(--glow-intensity)) var(--glow-color-2))
+    drop-shadow(0 0 calc(45px * var(--glow-intensity)) var(--glow-color-3))
+    drop-shadow(0 0 calc(55px * var(--glow-intensity)) rgba(255, 255, 255, 0.3));
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.glowing-logo.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Additional bloom layers for enhanced glow */
+.bloom-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(25px);
+  opacity: calc(var(--glow-intensity) * 0.3);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.bloom-layer-1 {
+  filter: blur(20px);
+  opacity: calc(var(--glow-intensity) * 0.4);
+  animation: bloomPulse 6s ease-in-out infinite;
+}
+
+.bloom-layer-2 {
+  filter: blur(30px);
+  opacity: calc(var(--glow-intensity) * 0.25);
+  animation: bloomPulse 6s ease-in-out infinite 2s;
+}
+
+.bloom-layer-3 {
+  filter: blur(40px);
+  opacity: calc(var(--glow-intensity) * 0.15);
+  animation: bloomPulse 6s ease-in-out infinite 4s;
+}
+
+/* Sparks canvas styling */
+.sparks-canvas {
+  border-radius: 50%;
+  mix-blend-mode: screen;
+}
+
+/* Animations */
+@keyframes meshRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes meshBreathing {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.08) rotate(90deg);
+  }
+  50% {
+    transform: scale(1.12) rotate(180deg);
+  }
+  75% {
+    transform: scale(1.08) rotate(270deg);
+  }
+}
+
+@keyframes ringRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes bloomPulse {
+  0%, 100% {
+    opacity: calc(var(--glow-intensity) * 0.3);
+    transform: scale(1);
+  }
+  50% {
+    opacity: calc(var(--glow-intensity) * 0.6);
+    transform: scale(1.05);
+  }
+}
+
+/* Hover effects */
+.glowing-logo-container:hover .mesh-gradient-bg {
+  animation-duration: 15s, 8s;
+  filter: blur(35px);
+}
+
+.glowing-logo-container:hover .outer-glow-ring {
+  animation-duration: 15s;
+}
+
+.glowing-logo-container:hover .glowing-logo {
+  filter: 
+    drop-shadow(0 0 calc(30px * var(--glow-intensity)) var(--glow-color-1))
+    drop-shadow(0 0 calc(40px * var(--glow-intensity)) var(--glow-color-2))
+    drop-shadow(0 0 calc(50px * var(--glow-intensity)) var(--glow-color-3))
+    drop-shadow(0 0 calc(60px * var(--glow-intensity)) rgba(255, 255, 255, 0.4));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glowing-logo-container {
+    --glow-intensity: calc(var(--glow-intensity) * 0.8);
+  }
+  
+  .mesh-gradient-bg {
+    filter: blur(35px);
+  }
+  
+  .glowing-logo {
+    filter: 
+      drop-shadow(0 0 calc(20px * var(--glow-intensity)) var(--glow-color-1))
+      drop-shadow(0 0 calc(30px * var(--glow-intensity)) var(--glow-color-2))
+      drop-shadow(0 0 calc(40px * var(--glow-intensity)) var(--glow-color-3))
+      drop-shadow(0 0 calc(45px * var(--glow-intensity)) rgba(255, 255, 255, 0.3));
+  }
+}
+
+@media (max-width: 480px) {
+  .glowing-logo-container {
+    --glow-intensity: calc(var(--glow-intensity) * 0.6);
+  }
+  
+  .mesh-gradient-bg {
+    filter: blur(25px);
+  }
+  
+  .glowing-logo {
+    filter: 
+      drop-shadow(0 0 calc(15px * var(--glow-intensity)) var(--glow-color-1))
+      drop-shadow(0 0 calc(25px * var(--glow-intensity)) var(--glow-color-2))
+      drop-shadow(0 0 calc(35px * var(--glow-intensity)) var(--glow-color-3))
+      drop-shadow(0 0 calc(40px * var(--glow-intensity)) rgba(255, 255, 255, 0.3));
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glowing-logo-container {
+    --glow-intensity: calc(var(--glow-intensity) * 1.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .mesh-gradient-bg,
+  .outer-glow-ring,
+  .bloom-layer {
+    animation: none;
+  }
+  
+  .glowing-logo {
+    filter: 
+      drop-shadow(0 0 calc(15px * var(--glow-intensity)) var(--glow-color-1))
+      drop-shadow(0 0 calc(25px * var(--glow-intensity)) var(--glow-color-2))
+      drop-shadow(0 0 calc(35px * var(--glow-intensity)) var(--glow-color-3));
+  }
+  
+  .sparks-canvas {
+    display: none;
+  }
+}
+
+/* Performance optimizations */
+.glowing-logo-container {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.mesh-gradient-bg,
+.outer-glow-ring,
+.bloom-layer {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Focus states for accessibility */
+.glowing-logo-container:focus-within {
+  outline: 2px solid var(--glow-color-2);
+  outline-offset: 4px;
+}
+
+/* Loading state */
+.glowing-logo-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--glow-color-1);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+  z-index: 20;
+}
+
+.glowing-logo-container:not(.loaded)::before {
+  opacity: 1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

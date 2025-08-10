@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform, animate } from "framer-motion";
 import { Globe2, CheckCircle2, MapPin, Star, Languages, Brain, Dumbbell, Sparkles, UserRoundCheck, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,26 +33,16 @@ export default function Home() {
         {/* Clean black background with subtle parallax gradient */}
 
         <div className="spotlight-overlay absolute inset-0 -z-10" />
+        
+        {/* Enhanced background texture layers */}
+        <div className="bg-texture-grid absolute inset-0 -z-20 opacity-30" />
+        <div className="bg-texture-dots absolute inset-0 -z-20 opacity-20" />
+        <div className="bg-texture-lines absolute inset-0 -z-20 opacity-15" />
 
         <div className="container grid place-items-center py-20 sm:py-24">
           <Stagger className="flex flex-col items-center text-center gap-5">
             <div className="relative">
-              <motion.h1
-                initial="hidden"
-                animate="show"
-                variants={{
-                  hidden: {},
-                  show: { transition: { staggerChildren: 0.12 } },
-                }}
-                className="text-6xl sm:text-8xl md:text-[8.5rem] leading-[0.9] tracking-tight"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                <Word text="Fit" />
-                <span> </span>
-                <Word text="Mit" />
-                <span> </span>
-                <Word text="Kash" />
-              </motion.h1>
+              <TypewriterText text="FIT MIT KASH" />
             </div>
 
             <FadeUp delay={0.05} className="max-w-3xl text-base sm:text-lg text-white/80">
@@ -248,7 +238,7 @@ function Particles() {
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
       {/* Premium particles */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(35)].map((_, i) => (
         <motion.span
           key={i}
           className="pointer-events-none absolute block h-[2px] w-[2px] rounded-full bg-[--color-accent]/70"
@@ -261,14 +251,104 @@ function Particles() {
           transition={{ duration: 6 + Math.random() * 6, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 2 }}
         />
       ))}
-      {/* subtle geometric bars */}
-      {[...Array(3)].map((_, i) => (
+      
+      {/* Enhanced geometric bars */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute h-px w-64 bg-[--color-accent]/15"
-          style={{ left: `${10 + i * 25}%`, top: `${40 + i * 10}%` }}
+          style={{ left: `${10 + i * 15}%`, top: `${30 + i * 8}%` }}
           animate={{ x: [0, 60, 0], opacity: [0.15, 0.35, 0.15] }}
           transition={{ duration: 12 + i * 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+      ))}
+      
+      {/* Floating geometric shapes */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={`shape-${i}`}
+          className="absolute w-2 h-2 bg-[--color-accent]/20 rounded-sm"
+          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          animate={{
+            y: [0, -30 - Math.random() * 40, 0],
+            x: [0, (Math.random() - 0.5) * 30, 0],
+            rotate: [0, 180, 360],
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.6, 0.2],
+          }}
+          transition={{ duration: 8 + Math.random() * 8, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 3 }}
+        />
+      ))}
+      
+      {/* Floating circles */}
+      {[...Array(12)].map((_, i) => (
+        <motion.div
+          key={`circle-${i}`}
+          className="absolute rounded-full border border-[--color-accent]/30"
+          style={{ 
+            left: `${Math.random() * 100}%`, 
+            top: `${Math.random() * 100}%`,
+            width: `${4 + Math.random() * 8}px`,
+            height: `${4 + Math.random() * 8}px`
+          }}
+          animate={{
+            y: [0, -20 - Math.random() * 30, 0],
+            x: [0, (Math.random() - 0.5) * 25, 0],
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.4, 0.1],
+          }}
+          transition={{ duration: 10 + Math.random() * 6, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 4 }}
+        />
+      ))}
+      
+      {/* Floating lines */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={`line-${i}`}
+          className="absolute h-px bg-gradient-to-r from-transparent via-[--color-accent]/25 to-transparent"
+          style={{ 
+            left: `${Math.random() * 100}%`, 
+            top: `${Math.random() * 100}%`,
+            width: `${100 + Math.random() * 150}px`
+          }}
+          animate={{
+            y: [0, -15 - Math.random() * 20, 0],
+            x: [0, (Math.random() - 0.5) * 40, 0],
+            opacity: [0.1, 0.3, 0.1],
+            scaleX: [1, 1.2, 1],
+          }}
+          transition={{ duration: 14 + Math.random() * 8, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 5 }}
+        />
+      ))}
+      
+      {/* Floating dots with trails */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={`dot-${i}`}
+          className="absolute w-1 h-1 bg-[--color-accent]/50 rounded-full"
+          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          animate={{
+            y: [0, -25 - Math.random() * 35, 0],
+            x: [0, (Math.random() - 0.5) * 15, 0],
+            opacity: [0.4, 0.9, 0.4],
+          }}
+          transition={{ duration: 7 + Math.random() * 5, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 2 }}
+        />
+      ))}
+      
+      {/* Floating triangles */}
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`triangle-${i}`}
+          className="absolute w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[6px] border-b-[--color-accent]/25"
+          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          animate={{
+            y: [0, -20 - Math.random() * 25, 0],
+            x: [0, (Math.random() - 0.5) * 20, 0],
+            rotate: [0, 120, 240],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{ duration: 9 + Math.random() * 6, repeat: Infinity, ease: "easeInOut", delay: Math.random() * 3 }}
         />
       ))}
     </div>
@@ -452,6 +532,69 @@ function AnimatedNumber({ value }: { value: number }) {
   return <motion.span ref={ref}>{rounded}</motion.span>;
 }
 
+function TypewriterText({ text }: { text: string }) {
+  const [displayText, setDisplayText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timer = setTimeout(() => {
+        setDisplayText(prev => prev + text[currentIndex]);
+        setCurrentIndex(prev => prev + 1);
+      }, 120); // 120ms delay between letters
+
+      return () => clearTimeout(timer);
+    } else {
+      // Add a small delay before hiding cursor
+      const completionTimer = setTimeout(() => {
+        setIsComplete(true);
+      }, 500);
+      
+      return () => clearTimeout(completionTimer);
+    }
+  }, [currentIndex, text]);
+
+  return (
+    <h1 
+      className="text-6xl sm:text-8xl md:text-[8.5rem] leading-[0.9] tracking-tight font-black text-white relative"
+      style={{ fontFamily: "var(--font-display)" }}
+    >
+      {displayText.split('').map((char, index) => (
+        <motion.span
+          key={index}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ 
+            scale: [0, 1.3, 1], 
+            opacity: [0, 1, 1] 
+          }}
+          transition={{ 
+            duration: 0.4,
+            ease: "easeOut",
+            delay: index * 0.12 // 120ms delay per letter
+          }}
+          className="inline-block"
+          style={{
+            textShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
+          }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+      {!isComplete && (
+        <motion.span
+          className="inline-block w-2 h-full bg-white ml-1 rounded-sm"
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+          style={{
+            boxShadow: '0 0 10px rgba(255, 255, 255, 0.8)',
+          }}
+        />
+      )}
+    </h1>
+  );
+}
+
 function Word({ text }: { text: string }) {
   return (
     <motion.span
@@ -465,6 +608,10 @@ function Word({ text }: { text: string }) {
     </motion.span>
   );
 }
+
+
+
+
 
 
 
