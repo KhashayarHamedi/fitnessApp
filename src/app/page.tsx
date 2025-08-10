@@ -466,6 +466,8 @@ function Word({ text }: { text: string }) {
   );
 }
 
+
+
 function Badge({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 text-xs text-white/80">
