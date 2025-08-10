@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'fa' | 'de';
+type Language = 'en' | 'fa' | 'de' | 'es' | 'uk' | 'ru' | 'ar' | 'tr';
 
 interface LanguageContextType {
   language: Language;
@@ -447,9 +447,739 @@ const translations = {
     'weekly_goal': 'Wöchentliches Ziel',
     'best_pace': 'Bestes Tempo',
     'avg_weekly': 'Durchschnitt wöchentlich',
-    'total_time': 'Gesamtzeit',
-  }
-};
+         'total_time': 'Gesamtzeit',
+   },
+   
+   es: {
+     // Header
+     'based_in': 'Con sede en Berlín',
+     
+     // Navigation
+     'programs': 'Programas',
+     'results': 'Resultados',
+     'story': 'Historia',
+     
+     // Hero Section
+     'hero_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     'location_text': 'Con sede en Berlín, Alemania, atendiendo clientes internacionalmente',
+     'book_consultation': 'Reserva tu Consulta',
+     
+     // Stats Section
+     'clients_transformed': 'Clientes Transformados',
+     'countries_reached': 'Países Alcanzados',
+     'age_range': 'Rango de Edad',
+     'success_rate': 'Tasa de Éxito',
+     'yrs': 'años',
+     
+     // Story Section
+     'story_title': 'De un Gimnasio Polvoriento en Teherán a Transformar Vidas en 25 Países',
+     'story_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     'nasm_certified': 'Certificado NASM',
+     'philosophy': '90% es mentalidad',
+     
+     // Programs Section
+     'programs_title': 'Elige tu Camino de Transformación',
+     'programs_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     'monthly': 'Mensual',
+     'life_cycle': 'Ciclo de Vida',
+     'premium': 'Premium',
+     'most_popular': 'Más Popular',
+     'from': 'desde',
+     
+     // In-Person & Virtual
+     'in_person_title': 'Coaching Presencial y Virtual',
+     'in_person_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     
+     // Assessment Section
+     'assessment_title': 'Cuéntanos tu historia',
+     'assessment_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     'sample_questions': 'Preguntas de ejemplo:',
+     'question_1': '¿Qué te trajo al fitness?',
+     'question_2': '¿Qué obstáculos has enfrentado?',
+     'question_3': '¿Cómo se ve el éxito para ti?',
+     'cultural_sensitivity': 'Sensibilidad cultural y opciones de apoyo disponibles.',
+     
+     // Testimonials
+     'testimonials_title': 'Resultados Reales, Historias Reales',
+     'testimonials_subtitle': 'Coaching de élite que combina entrenamiento, mentalidad y sistemas de vida. Resultados medidos en cuerpo, mente y vida.',
+     
+     // Consultation Form Steps
+     'step_1_title': '¿Qué te trajo aquí hoy?',
+     'tired_restart': 'Cansado de empezar de nuevo',
+     'ready_change': 'Listo para un cambio real',
+     'lost_direction': 'Perdido y necesito dirección',
+     'nothing_worked': 'Nada ha funcionado',
+     
+     'step_2_title': 'Imagina dentro de 6 meses...',
+     'confidence_level': 'Nivel de Confianza',
+     'energy_level': 'Nivel de Energía',
+     'body_satisfaction': 'Satisfacción Corporal',
+     'low': 'Bajo',
+     'high': 'Alto',
+     
+     'step_3_title': '¿Cuál es tu mayor obstáculo?',
+     'motivation_dies': 'La motivación muere rápido',
+     'dont_know_start': 'No sé por dónde empezar',
+     'too_busy': 'Demasiado ocupado, sin tiempo',
+     'mental_barriers': 'Barreras mentales',
+     'physical_limitations': 'Limitaciones físicas',
+     'tried_expensive': 'Probé programas caros',
+     
+     'step_4_title': 'Cuéntame tu historia en una frase:',
+     'story_placeholder': 'Estoy listo para cambiar porque...',
+     'characters_remaining': 'caracteres restantes',
+     'story_matters': 'Tu historia me importa. - Kash',
+     
+     'step_5_title': 'Pongámonos en contacto',
+     'first_name': 'Nombre',
+     'name_placeholder': '¿Cómo debo llamarte?',
+     'best_way_reach': 'Mejor forma de contactarte:',
+     'email': 'Email',
+     'whatsapp': 'WhatsApp',
+     'location': 'Ubicación',
+     'location_placeholder': 'Ciudad, País',
+     
+     'step_6_title': '¿Qué tan serio eres? (Sé honesto)',
+     'just_curious': 'Solo Curioso',
+     'maybe_someday': 'Tal vez algún día',
+     'ready_soon': 'Listo Pronto',
+     'within_month': 'Dentro de 1 mes',
+     'ready_now': 'Listo Ahora',
+     'start_immediately': 'Empecemos inmediatamente',
+     'last_attempt': 'Último Intento',
+     'need_work': 'Necesito que esto funcione',
+     
+     // Navigation
+     'previous': 'Anterior',
+     'next': 'Siguiente',
+     'submit_application': 'Enviar Solicitud',
+     'submitting': 'Enviando...',
+     
+     // Success Screen
+     'application_received': '¡Solicitud Recibida!',
+     'congratulations': '¡Felicitaciones',
+     'journey_begin': 'Tu viaje de transformación está por comenzar. Kash revisará tu solicitud y te responderá pronto.',
+     'whats_next': '¿Qué sigue?',
+     'review_personally': 'Kash revisará tu solicitud personalmente',
+     'personalized_response': 'Recibirás una respuesta personalizada',
+     'journey_begins': 'Tu viaje de transformación comienza',
+     'back_home': 'Volver al Inicio',
+     'welcome_family': '¡Bienvenido a la familia Fit Mit Kash!',
+     
+     // Social Proof
+     'maria_story': 'María de España comenzó aquí y transformó su vida en 6 meses',
+     
+     // Form Labels
+     'interactive_calculator': 'Calculadora interactiva de entrenamiento y rastreador',
+     'session_timer': 'Temporizador de Sesión',
+     'distance': 'Distancia',
+     'drag_kilometers': 'Arrastra para ajustar kilómetros',
+     'duration': 'Duración',
+     'drag_minutes': 'Arrastra para ajustar minutos',
+     'intensity': 'Intensidad',
+     'drag_effort': 'Arrastra para ajustar nivel de esfuerzo',
+     'profile_settings': 'Configuración de Perfil',
+     'weight_kg': 'Peso (kg)',
+     'age': 'Edad',
+     'gender': 'Género',
+     'male': 'Masculino',
+     'female': 'Femenino',
+     'calories_burned': 'Calorías Quemadas',
+     'fat_burned': 'Grasa Quemada',
+     'pace': 'Ritmo',
+     'heart_rate': 'Frecuencia Cardíaca',
+     'steps': 'Pasos',
+     'elevation': 'Elevación',
+     'weekly_goal': 'Meta Semanal',
+     'best_pace': 'Mejor Ritmo',
+     'avg_weekly': 'Promedio Semanal',
+     'total_time': 'Tiempo Total',
+   },
+   
+   uk: {
+     // Header
+     'based_in': 'Базується в Берліні',
+     
+     // Navigation
+     'programs': 'Програми',
+     'results': 'Результати',
+     'story': 'Історія',
+     
+     // Hero Section
+     'hero_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     'location_text': 'Базується в Берліні, Німеччина, обслуговує клієнтів міжнародно',
+     'book_consultation': 'Забронювати Консультацію',
+     
+     // Stats Section
+     'clients_transformed': 'Клієнтів Трансформовано',
+     'countries_reached': 'Країн Охоплено',
+     'age_range': 'Віковий Діапазон',
+     'success_rate': 'Показник Успіху',
+     'yrs': 'років',
+     
+     // Story Section
+     'story_title': 'Від Запиленого Тегеранського Спортзалу до Трансформації Життів у 25 Країнах',
+     'story_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     'nasm_certified': 'Сертифікований NASM',
+     'philosophy': '90% це мислення',
+     
+     // Programs Section
+     'programs_title': 'Виберіть Свій Шлях Трансформації',
+     'programs_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     'monthly': 'Щомісячно',
+     'life_cycle': 'Життєвий Цикл',
+     'premium': 'Преміум',
+     'most_popular': 'Найпопулярніший',
+     'from': 'від',
+     
+     // In-Person & Virtual
+     'in_person_title': 'Особисте та Віртуальне Тренування',
+     'in_person_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     
+     // Assessment Section
+     'assessment_title': 'Розкажіть нам свою історію',
+     'assessment_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     'sample_questions': 'Приклади питань:',
+     'question_1': 'Що привело вас до фітнесу?',
+     'question_2': 'Які перешкоди ви зустрічали?',
+     'question_3': 'Як виглядає успіх для вас?',
+     'cultural_sensitivity': 'Культурна чутливість та варіанти підтримки доступні.',
+     
+     // Testimonials
+     'testimonials_title': 'Реальні Результати, Реальні Історії',
+     'testimonials_subtitle': 'Елітне тренування, що поєднує фізичні вправи, мислення та життєві системи. Результати вимірюються в тілі, розумі та житті.',
+     
+     // Consultation Form Steps
+     'step_1_title': 'Що привело вас сюди сьогодні?',
+     'tired_restart': 'Втомився від початку спочатку',
+     'ready_change': 'Готовий до реальних змін',
+     'lost_direction': 'Загубився і потребую напрямку',
+     'nothing_worked': 'Нічого не спрацювало',
+     
+     'step_2_title': 'Уявіть через 6 місяців...',
+     'confidence_level': 'Рівень Впевненості',
+     'energy_level': 'Рівень Енергії',
+     'body_satisfaction': 'Задоволення Тілом',
+     'low': 'Низький',
+     'high': 'Високий',
+     
+     'step_3_title': 'Яка ваша найбільша перешкода?',
+     'motivation_dies': 'Мотивація швидко згасає',
+     'dont_know_start': 'Не знаю, з чого почати',
+     'too_busy': 'Занадто зайнятий, немає часу',
+     'mental_barriers': 'Психічні бар\'єри',
+     'physical_limitations': 'Фізичні обмеження',
+     'tried_expensive': 'Спробував дорогі програми',
+     
+     'step_4_title': 'Розкажіть мені свою історію в одному реченні:',
+     'story_placeholder': 'Я готовий змінюватися, тому що...',
+     'characters_remaining': 'символів залишилося',
+     'story_matters': 'Ваша історія важлива для мене. - Каш',
+     
+     'step_5_title': 'Давайте зв\'яжемося',
+     'first_name': 'Ім\'я',
+     'name_placeholder': 'Як мені вас називати?',
+     'best_way_reach': 'Найкращий спосіб зв\'язатися з вами:',
+     'email': 'Email',
+     'whatsapp': 'WhatsApp',
+     'location': 'Розташування',
+     'location_placeholder': 'Місто, Країна',
+     
+     'step_6_title': 'Наскільки серйозно ви ставитеся? (Будьте чесні)',
+     'just_curious': 'Просто Цікаво',
+     'maybe_someday': 'Можливо колись',
+     'ready_soon': 'Скоро Готовий',
+     'within_month': 'Протягом 1 місяця',
+     'ready_now': 'Готовий Зараз',
+     'start_immediately': 'Давайте почнемо відразу',
+     'last_attempt': 'Остання Спроба',
+     'need_work': 'Мені потрібно, щоб це спрацювало',
+     
+     // Navigation
+     'previous': 'Попередній',
+     'next': 'Далі',
+     'submit_application': 'Подати Заявку',
+     'submitting': 'Подається...',
+     
+     // Success Screen
+     'application_received': 'Заявку Отримано!',
+     'congratulations': 'Вітаємо',
+     'journey_begin': 'Ваша подорож трансформації ось-ось почнеться. Каш перегляне вашу заявку і відповість вам незабаром.',
+     'whats_next': 'Що далі?',
+     'review_personally': 'Каш особисто перегляне вашу заявку',
+     'personalized_response': 'Ви отримаєте персоналізовану відповідь',
+     'journey_begins': 'Ваша подорож трансформації починається',
+     'back_home': 'Повернутися Додому',
+     'welcome_family': 'Ласкаво просимо до сім\'ї Fit Mit Kash!',
+     
+     // Social Proof
+     'maria_story': 'Марія з Іспанії почала звідси і трансформувала своє життя за 6 місяців',
+     
+     // Form Labels
+     'interactive_calculator': 'Інтерактивний калькулятор тренувань та трекер',
+     'session_timer': 'Таймер Сесії',
+     'distance': 'Відстань',
+     'drag_kilometers': 'Перетягніть для налаштування кілометрів',
+     'duration': 'Тривалість',
+     'drag_minutes': 'Перетягніть для налаштування хвилин',
+     'intensity': 'Інтенсивність',
+     'drag_effort': 'Перетягніть для налаштування рівня зусиль',
+     'profile_settings': 'Налаштування Профілю',
+     'weight_kg': 'Вага (кг)',
+     'age': 'Вік',
+     'gender': 'Стать',
+     'male': 'Чоловіча',
+     'female': 'Жіноча',
+     'calories_burned': 'Спалені Калорії',
+     'fat_burned': 'Спалений Жир',
+     'pace': 'Темп',
+     'heart_rate': 'Частота Серця',
+     'steps': 'Кроки',
+     'elevation': 'Підйом',
+     'weekly_goal': 'Тижнева Мета',
+     'best_pace': 'Найкращий Темп',
+     'avg_weekly': 'Середній Тижневий',
+     'total_time': 'Загальний Час',
+   },
+   
+   ru: {
+     // Header
+     'based_in': 'Базируется в Берлине',
+     
+     // Navigation
+     'programs': 'Программы',
+     'results': 'Результаты',
+     'story': 'История',
+     
+     // Hero Section
+     'hero_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     'location_text': 'Базируется в Берлине, Германия, обслуживает клиентов по всему миру',
+     'book_consultation': 'Забронировать Консультацию',
+     
+     // Stats Section
+     'clients_transformed': 'Клиентов Трансформировано',
+     'countries_reached': 'Стран Охвачено',
+     'age_range': 'Возрастной Диапазон',
+     'success_rate': 'Показатель Успеха',
+     'yrs': 'лет',
+     
+     // Story Section
+     'story_title': 'От Пыльного Тегеранского Спортзала до Трансформации Жизней в 25 Странах',
+     'story_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     'nasm_certified': 'Сертифицирован NASM',
+     'philosophy': '90% это мышление',
+     
+     // Programs Section
+     'programs_title': 'Выберите Свой Путь Трансформации',
+     'programs_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     'monthly': 'Ежемесячно',
+     'life_cycle': 'Жизненный Цикл',
+     'premium': 'Премиум',
+     'most_popular': 'Самый Популярный',
+     'from': 'от',
+     
+     // In-Person & Virtual
+     'in_person_title': 'Личный и Виртуальный Коучинг',
+     'in_person_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     
+     // Assessment Section
+     'assessment_title': 'Расскажите нам свою историю',
+     'assessment_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     'sample_questions': 'Примеры вопросов:',
+     'question_1': 'Что привело вас к фитнесу?',
+     'question_2': 'Какие препятствия вы встречали?',
+     'question_3': 'Как выглядит успех для вас?',
+     'cultural_sensitivity': 'Культурная чувствительность и варианты поддержки доступны.',
+     
+     // Testimonials
+     'testimonials_title': 'Реальные Результаты, Реальные Истории',
+     'testimonials_subtitle': 'Элитный коучинг, сочетающий тренировки, мышление и жизненные системы. Результаты измеряются в теле, разуме и жизни.',
+     
+     // Consultation Form Steps
+     'step_1_title': 'Что привело вас сюда сегодня?',
+     'tired_restart': 'Устал начинать заново',
+     'ready_change': 'Готов к реальным изменениям',
+     'lost_direction': 'Потерялся и нуждаюсь в направлении',
+     'nothing_worked': 'Ничего не сработало',
+     
+     'step_2_title': 'Представьте через 6 месяцев...',
+     'confidence_level': 'Уровень Уверенности',
+     'energy_level': 'Уровень Энергии',
+     'body_satisfaction': 'Удовлетворенность Телом',
+     'low': 'Низкий',
+     'high': 'Высокий',
+     
+     'step_3_title': 'Какое ваше самое большое препятствие?',
+     'motivation_dies': 'Мотивация быстро угасает',
+     'dont_know_start': 'Не знаю, с чего начать',
+     'too_busy': 'Слишком занят, нет времени',
+     'mental_barriers': 'Психические барьеры',
+     'physical_limitations': 'Физические ограничения',
+     'tried_expensive': 'Пробовал дорогие программы',
+     
+     'step_4_title': 'Расскажите мне свою историю в одном предложении:',
+     'story_placeholder': 'Я готов меняться, потому что...',
+     'characters_remaining': 'символов осталось',
+     'story_matters': 'Ваша история важна для меня. - Каш',
+     
+     'step_5_title': 'Давайте свяжемся',
+     'first_name': 'Имя',
+     'name_placeholder': 'Как мне вас называть?',
+     'best_way_reach': 'Лучший способ связаться с вами:',
+     'email': 'Email',
+     'whatsapp': 'WhatsApp',
+     'location': 'Местоположение',
+     'location_placeholder': 'Город, Страна',
+     
+     'step_6_title': 'Насколько серьезно вы относитесь? (Будьте честны)',
+     'just_curious': 'Просто Любопытно',
+     'maybe_someday': 'Может быть когда-нибудь',
+     'ready_soon': 'Скоро Готов',
+     'within_month': 'В течение 1 месяца',
+     'ready_now': 'Готов Сейчас',
+     'start_immediately': 'Давайте начнем сразу',
+     'last_attempt': 'Последняя Попытка',
+     'need_work': 'Мне нужно, чтобы это сработало',
+     
+     // Navigation
+     'previous': 'Предыдущий',
+     'next': 'Далее',
+     'submit_application': 'Подать Заявку',
+     'submitting': 'Подается...',
+     
+     // Success Screen
+     'application_received': 'Заявку Получено!',
+     'congratulations': 'Поздравляем',
+     'journey_begin': 'Ваше путешествие трансформации вот-вот начнется. Каш рассмотрит вашу заявку и ответит вам вскоре.',
+     'whats_next': 'Что дальше?',
+     'review_personally': 'Каш лично рассмотрит вашу заявку',
+     'personalized_response': 'Вы получите персонализированный ответ',
+     'journey_begins': 'Ваше путешествие трансформации начинается',
+     'back_home': 'Вернуться Домой',
+     'welcome_family': 'Добро пожаловать в семью Fit Mit Kash!',
+     
+     // Social Proof
+     'maria_story': 'Мария из Испании начала отсюда и трансформировала свою жизнь за 6 месяцев',
+     
+     // Form Labels
+     'interactive_calculator': 'Интерактивный калькулятор тренировок и трекер',
+     'session_timer': 'Таймер Сессии',
+     'distance': 'Расстояние',
+     'drag_kilometers': 'Перетащите для настройки километров',
+     'duration': 'Продолжительность',
+     'drag_minutes': 'Перетащите для настройки минут',
+     'intensity': 'Интенсивность',
+     'drag_effort': 'Перетащите для настройки уровня усилий',
+     'profile_settings': 'Настройки Профиля',
+     'weight_kg': 'Вес (кг)',
+     'age': 'Возраст',
+     'gender': 'Пол',
+     'male': 'Мужской',
+     'female': 'Женский',
+     'calories_burned': 'Сожженные Калории',
+     'fat_burned': 'Сожженный Жир',
+     'pace': 'Темп',
+     'heart_rate': 'Частота Сердца',
+     'steps': 'Шаги',
+     'elevation': 'Подъем',
+     'weekly_goal': 'Недельная Цель',
+     'best_pace': 'Лучший Темп',
+     'avg_weekly': 'Средний Недельный',
+     'total_time': 'Общее Время',
+   },
+   
+   ar: {
+     // Header
+     'based_in': 'مقيم في برلين',
+     
+     // Navigation
+     'programs': 'البرامج',
+     'results': 'النتائج',
+     'story': 'القصة',
+     
+     // Hero Section
+     'hero_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     'location_text': 'مقيم في برلين، ألمانيا، يخدم العملاء دولياً',
+     'book_consultation': 'احجز استشارتك',
+     
+     // Stats Section
+     'clients_transformed': 'عملاء تم تحويلهم',
+     'countries_reached': 'دول تم الوصول إليها',
+     'age_range': 'نطاق العمر',
+     'success_rate': 'معدل النجاح',
+     'yrs': 'سنوات',
+     
+     // Story Section
+     'story_title': 'من صالة رياضية مغبرة في طهران إلى تحويل حياة في 25 دولة',
+     'story_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     'nasm_certified': 'معتمد من NASM',
+     'philosophy': '90% هي العقلية',
+     
+     // Programs Section
+     'programs_title': 'اختر مسار تحولك',
+     'programs_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     'monthly': 'شهري',
+     'life_cycle': 'دورة الحياة',
+     'premium': 'بريميوم',
+     'most_popular': 'الأكثر شعبية',
+     'from': 'من',
+     
+     // In-Person & Virtual
+     'in_person_title': 'التدريب الشخصي والافتراضي',
+     'in_person_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     
+     // Assessment Section
+     'assessment_title': 'أخبرنا قصتك',
+     'assessment_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     'sample_questions': 'أسئلة نموذجية:',
+     'question_1': 'ما الذي جلبك إلى اللياقة البدنية؟',
+     'question_2': 'ما العقبات التي واجهتها؟',
+     'question_3': 'كيف يبدو النجاح بالنسبة لك؟',
+     'cultural_sensitivity': 'الحساسية الثقافية وخيارات الدعم متاحة.',
+     
+     // Testimonials
+     'testimonials_title': 'نتائج حقيقية، قصص حقيقية',
+     'testimonials_subtitle': 'تدريب نخبة يجمع بين التمرين والعقلية وأنظمة الحياة. النتائج تُقاس في الجسد والعقل والحياة.',
+     
+     // Consultation Form Steps
+     'step_1_title': 'ما الذي جلبك هنا اليوم؟',
+     'tired_restart': 'تعبان من البدء من جديد',
+     'ready_change': 'مستعد للتغيير الحقيقي',
+     'lost_direction': 'ضائع وأحتاج توجيه',
+     'nothing_worked': 'لا شيء نجح',
+     
+     'step_2_title': 'تخيل بعد 6 أشهر...',
+     'confidence_level': 'مستوى الثقة',
+     'energy_level': 'مستوى الطاقة',
+     'body_satisfaction': 'الرضا عن الجسد',
+     'low': 'منخفض',
+     'high': 'عالي',
+     
+     'step_3_title': 'ما أكبر عقبة لديك؟',
+     'motivation_dies': 'الدافع يموت بسرعة',
+     'dont_know_start': 'لا أعرف من أين أبدأ',
+     'too_busy': 'مشغول جداً، لا وقت',
+     'mental_barriers': 'حواجز عقلية',
+     'physical_limitations': 'قيود جسدية',
+     'tried_expensive': 'جربت برامج باهظة',
+     
+     'step_4_title': 'أخبرني قصتك في جملة واحدة:',
+     'story_placeholder': 'أنا مستعد للتغيير لأن...',
+     'characters_remaining': 'أحرف متبقية',
+     'story_matters': 'قصتك مهمة بالنسبة لي. - كاش',
+     
+     'step_5_title': 'دعنا نتواصل',
+     'first_name': 'الاسم الأول',
+     'name_placeholder': 'ماذا يجب أن أناديك؟',
+     'best_way_reach': 'أفضل طريقة للوصول إليك:',
+     'email': 'البريد الإلكتروني',
+     'whatsapp': 'واتساب',
+     'location': 'الموقع',
+     'location_placeholder': 'المدينة، البلد',
+     
+     'step_6_title': 'ما مدى جديتك؟ (كن صادقاً)',
+     'just_curious': 'فقط فضولي',
+     'maybe_someday': 'ربما يوماً ما',
+     'ready_soon': 'مستعد قريباً',
+     'within_month': 'خلال شهر واحد',
+     'ready_now': 'مستعد الآن',
+     'start_immediately': 'دعنا نبدأ فوراً',
+     'last_attempt': 'المحاولة الأخيرة',
+     'need_work': 'أحتاج أن يعمل هذا',
+     
+     // Navigation
+     'previous': 'السابق',
+     'next': 'التالي',
+     'submit_application': 'إرسال الطلب',
+     'submitting': 'جاري الإرسال...',
+     
+     // Success Screen
+     'application_received': 'تم استلام الطلب!',
+     'congratulations': 'تهانينا',
+     'journey_begin': 'رحلة تحولك على وشك البدء. كاش سيراجع طلبك ويجيبك قريباً.',
+     'whats_next': 'ماذا بعد؟',
+     'review_personally': 'كاش سيراجع طلبك شخصياً',
+     'personalized_response': 'ستحصل على رد مخصص',
+     'journey_begins': 'رحلة تحولك تبدأ',
+     'back_home': 'العودة للرئيسية',
+     'welcome_family': 'مرحباً بك في عائلة فيت ميت كاش!',
+     
+     // Social Proof
+     'maria_story': 'ماريا من إسبانيا بدأت من هنا وحولت حياتها في 6 أشهر',
+     
+     // Form Labels
+     'interactive_calculator': 'حاسبة تدريب تفاعلية ومتعقب',
+     'session_timer': 'مؤقت الجلسة',
+     'distance': 'المسافة',
+     'drag_kilometers': 'اسحب لضبط الكيلومترات',
+     'duration': 'المدة',
+     'drag_minutes': 'اسحب لضبط الدقائق',
+     'intensity': 'الشدة',
+     'drag_effort': 'اسحب لضبط مستوى الجهد',
+     'profile_settings': 'إعدادات الملف الشخصي',
+     'weight_kg': 'الوزن (كجم)',
+     'age': 'العمر',
+     'gender': 'الجنس',
+     'male': 'ذكر',
+     'female': 'أنثى',
+     'calories_burned': 'السعرات المحروقة',
+     'fat_burned': 'الدهون المحروقة',
+     'pace': 'السرعة',
+     'heart_rate': 'معدل ضربات القلب',
+     'steps': 'الخطوات',
+     'elevation': 'الارتفاع',
+     'weekly_goal': 'الهدف الأسبوعي',
+     'best_pace': 'أفضل سرعة',
+     'avg_weekly': 'المتوسط الأسبوعي',
+     'total_time': 'الوقت الإجمالي',
+   },
+   
+   tr: {
+     // Header
+     'based_in': 'Berlin\'de Merkez',
+     
+     // Navigation
+     'programs': 'Programlar',
+     'results': 'Sonuçlar',
+     'story': 'Hikaye',
+     
+     // Hero Section
+     'hero_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     'location_text': 'Berlin, Almanya\'da merkez, uluslararası müşterilere hizmet veriyor',
+     'book_consultation': 'Danışmanlık Rezervasyonu',
+     
+     // Stats Section
+     'clients_transformed': 'Dönüştürülen Müşteriler',
+     'countries_reached': 'Ulaşılan Ülkeler',
+     'age_range': 'Yaş Aralığı',
+     'success_rate': 'Başarı Oranı',
+     'yrs': 'yaş',
+     
+     // Story Section
+     'story_title': 'Tozlu Tahran Spor Salonundan 25 Ülkede Yaşamları Dönüştürmeye',
+     'story_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     'nasm_certified': 'NASM Sertifikalı',
+     'philosophy': '90% zihniyet',
+     
+     // Programs Section
+     'programs_title': 'Dönüşüm Yolunuzu Seçin',
+     'programs_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     'monthly': 'Aylık',
+     'life_cycle': 'Yaşam Döngüsü',
+     'premium': 'Premium',
+     'most_popular': 'En Popüler',
+     'from': 'den',
+     
+     // In-Person & Virtual
+     'in_person_title': 'Yüz Yüze ve Sanal Koçluk',
+     'in_person_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     
+     // Assessment Section
+     'assessment_title': 'Hikayenizi anlatın',
+     'assessment_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     'sample_questions': 'Örnek sorular:',
+     'question_1': 'Sizi fitness\'a ne getirdi?',
+     'question_2': 'Hangi engellerle karşılaştınız?',
+     'question_3': 'Başarı sizin için nasıl görünüyor?',
+     'cultural_sensitivity': 'Kültürel hassasiyet ve destek seçenekleri mevcuttur.',
+     
+     // Testimonials
+     'testimonials_title': 'Gerçek Sonuçlar, Gerçek Hikayeler',
+     'testimonials_subtitle': 'Antrenman, zihniyet ve yaşam sistemlerini birleştiren elit koçluk. Sonuçlar bedende, zihinde ve yaşamda ölçülür.',
+     
+     // Consultation Form Steps
+     'step_1_title': 'Bugün sizi buraya ne getirdi?',
+     'tired_restart': 'Yeniden başlamaktan yoruldum',
+     'ready_change': 'Gerçek değişim için hazır',
+     'lost_direction': 'Kayboldum ve yön bulmaya ihtiyacım var',
+     'nothing_worked': 'Hiçbir şey işe yaramadı',
+     
+     'step_2_title': '6 ay sonrasını hayal edin...',
+     'confidence_level': 'Güven Seviyesi',
+     'energy_level': 'Enerji Seviyesi',
+     'body_satisfaction': 'Vücut Memnuniyeti',
+     'low': 'Düşük',
+     'high': 'Yüksek',
+     
+     'step_3_title': 'En büyük engeliniz nedir?',
+     'motivation_dies': 'Motivasyon hızla ölüyor',
+     'dont_know_start': 'Nereden başlayacağımı bilmiyorum',
+     'too_busy': 'Çok meşgul, zaman yok',
+     'mental_barriers': 'Zihinsel engeller',
+     'physical_limitations': 'Fiziksel sınırlamalar',
+     'tried_expensive': 'Pahalı programları denedim',
+     
+     'step_4_title': 'Hikayenizi tek cümlede anlatın:',
+     'story_placeholder': 'Değişmeye hazırım çünkü...',
+     'characters_remaining': 'karakter kaldı',
+     'story_matters': 'Hikayeniz benim için önemli. - Kash',
+     
+     'step_5_title': 'İletişime geçelim',
+     'first_name': 'Ad',
+     'name_placeholder': 'Size nasıl hitap etmeliyim?',
+     'best_way_reach': 'Size ulaşmanın en iyi yolu:',
+     'email': 'E-posta',
+     'whatsapp': 'WhatsApp',
+     'location': 'Konum',
+     'location_placeholder': 'Şehir, Ülke',
+     
+     'step_6_title': 'Ne kadar ciddisiniz? (Dürüst olun)',
+     'just_curious': 'Sadece Meraklı',
+     'maybe_someday': 'Belki bir gün',
+     'ready_soon': 'Yakında Hazır',
+     'within_month': '1 ay içinde',
+     'ready_now': 'Şimdi Hazır',
+     'start_immediately': 'Hemen başlayalım',
+     'last_attempt': 'Son Deneme',
+     'need_work': 'Bunun işe yaraması gerekiyor',
+     
+     // Navigation
+     'previous': 'Önceki',
+     'next': 'Sonraki',
+     'submit_application': 'Başvuru Gönder',
+     'submitting': 'Gönderiliyor...',
+     
+     // Success Screen
+     'application_received': 'Başvuru Alındı!',
+     'congratulations': 'Tebrikler',
+     'journey_begin': 'Dönüşüm yolculuğunuz başlamak üzere. Kash başvurunuzu inceleyecek ve yakında size yanıt verecek.',
+     'whats_next': 'Sırada ne var?',
+     'review_personally': 'Kash başvurunuzu kişisel olarak inceleyecek',
+     'personalized_response': 'Kişiselleştirilmiş bir yanıt alacaksınız',
+     'journey_begins': 'Dönüşüm yolculuğunuz başlıyor',
+     'back_home': 'Ana Sayfaya Dön',
+     'welcome_family': 'Fit Mit Kash ailesine hoş geldiniz!',
+     
+     // Social Proof
+     'maria_story': 'İspanya\'dan Maria buradan başladı ve 6 ayda hayatını dönüştürdü',
+     
+     // Form Labels
+     'interactive_calculator': 'İnteraktif antrenman hesaplayıcısı ve takipçi',
+     'session_timer': 'Seans Zamanlayıcısı',
+     'distance': 'Mesafe',
+     'drag_kilometers': 'Kilometre ayarlamak için sürükleyin',
+     'duration': 'Süre',
+     'drag_minutes': 'Dakika ayarlamak için sürükleyin',
+     'intensity': 'Yoğunluk',
+     'drag_effort': 'Efor seviyesini ayarlamak için sürükleyin',
+     'profile_settings': 'Profil Ayarları',
+     'weight_kg': 'Kilo (kg)',
+     'age': 'Yaş',
+     'gender': 'Cinsiyet',
+     'male': 'Erkek',
+     'female': 'Kadın',
+     'calories_burned': 'Yakılan Kaloriler',
+     'fat_burned': 'Yakılan Yağ',
+     'pace': 'Tempo',
+     'heart_rate': 'Kalp Atış Hızı',
+     'steps': 'Adımlar',
+     'elevation': 'Yükseklik',
+     'weekly_goal': 'Haftalık Hedef',
+     'best_pace': 'En İyi Tempo',
+     'avg_weekly': 'Haftalık Ortalama',
+     'total_time': 'Toplam Süre',
+   }
+ };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('en');

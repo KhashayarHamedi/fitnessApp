@@ -103,7 +103,7 @@ export default function Home() {
       <section className="container py-24 border-t border-white/10" id="stories">
         <div className="grid gap-10 md:grid-cols-2">
           <ParallaxY className="space-y-4">
-            <h2 className="headline-glow text-2xl sm:text-3xl md:text-4xl font-semibold">From a Dusty Tehran Gym to Transforming Lives Across 25 Countries</h2>
+            <h2 className="headline-glow text-2xl sm:text-3xl md:text-4xl font-semibold">{t('story_title')}</h2>
             <div className="space-y-4 text-white/85 leading-relaxed">
               <p>At 17, I was just another kid in a dusty Tehran gym, staring at faded posters of bodybuilders I'd never heard of. No YouTube. No Instagram coaches. Just me, some rusty weights, and a burning question: "What am I actually capable of?"</p>
               <p>The first year nearly broke me. Injuries that made me question everything. Setbacks that felt like failures. But somewhere in that struggle, I discovered something that would change everything: the real battle wasn't in my muscles - it was in my mind.</p>
@@ -123,8 +123,8 @@ export default function Home() {
               <p><strong>Ready?</strong></p>
             </div>
             <div className="flex flex-wrap items-center gap-3 text-sm text-white/80">
-              <Badge icon={<Award className="h-4 w-4" />} label="NASM Certified" />
-              <Badge icon={<Brain className="h-4 w-4" />} label="Mindset-first Philosophy" />
+              <Badge icon={<Award className="h-4 w-4" />} label={t('nasm_certified')} />
+              <Badge icon={<Brain className="h-4 w-4" />} label={t('philosophy')} />
               <Badge icon={<Dumbbell className="h-4 w-4" />} label="Sustainable Habit Building" />
             </div>
           </ParallaxY>
@@ -140,8 +140,8 @@ export default function Home() {
       <section id="programs" className="container py-24 border-t border-white/10">
         <div className="mb-10 flex items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl font-semibold">Choose Your Path</h2>
-            <p className="text-white/80">Custom transformation programs starting at €30/month. Investment varies based on your goals — consultation first.</p>
+            <h2 className="text-3xl font-semibold">{t('programs_title')}</h2>
+            <p className="text-white/80">{t('programs_subtitle')}</p>
           </div>
           
         </div>
@@ -175,9 +175,9 @@ export default function Home() {
       {/* IN-PERSON & VIRTUAL */}
       <section className="container py-24 border-t border-white/10">
         <div className="rounded-2xl glass p-8 text-center">
-          <div className="mb-3 text-xl">🏋️‍♂️ IN-PERSON & VIRTUAL COACHING</div>
+          <div className="mb-3 text-xl">🏋️‍♂️ {t('in_person_title')}</div>
           <p className="mx-auto max-w-3xl text-white/80">
-            Train with Kash in Berlin or anywhere in the world via video sessions. Experience the same energy and motivation whether we're in the same room or across continents.
+            {t('in_person_subtitle')}
           </p>
         </div>
       </section>
@@ -186,8 +186,8 @@ export default function Home() {
       <section className="container py-24 border-t border-white/10">
         <div className="grid gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-semibold">Tell us your story</h2>
-            <p className="mt-2 text-white/70">A preview of the intake that shapes your plan.</p>
+            <h2 className="text-3xl font-semibold">{t('assessment_title')}</h2>
+            <p className="mt-2 text-white/70">{t('assessment_subtitle')}</p>
             <div className="mt-6 space-y-3">
               {[
                 "What are your top 3 goals?",
@@ -228,7 +228,7 @@ export default function Home() {
 
       {/* TESTIMONIALS */}
       <section className="container py-24 border-t border-white/10" id="testimonials">
-        <h2 className="mb-6 text-3xl font-semibold">Real Success Stories</h2>
+        <h2 className="mb-6 text-3xl font-semibold">{t('testimonials_title')}</h2>
         <div className="grid gap-6 md:grid-cols-3">
           <Testimonial name="Sarah" meta="28, Marketing Manager — Germany" text="Kash helped me realize my anxiety was blocking my fitness progress. His approach isn't just about workouts - it's about changing your whole mindset. I finally feel confident in my own skin." />
           <Testimonial name="Ahmad" meta="35, Software Engineer — Iran" text="Working with Kash remotely was amazing. He understood my Persian background and work culture. Lost 15kg but more importantly, gained mental clarity I never had before." />

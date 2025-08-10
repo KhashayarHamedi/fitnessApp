@@ -34,13 +34,18 @@ export function ClientHeader() {
           <select 
             id="lang" 
             value={language}
-            onChange={(e) => setLanguage(e.target.value as 'en' | 'fa' | 'de')}
+            onChange={(e) => setLanguage(e.target.value as 'en' | 'fa' | 'de' | 'es' | 'uk' | 'ru' | 'ar' | 'tr')}
             className="glass rounded-md px-2 py-1 text-xs text-white/90 dark-select" 
             aria-label="Select language"
           >
             <option value="en" className="text-black">🇬🇧 English</option>
             <option value="fa" className="text-black">🇮🇷 فارسی</option>
             <option value="de" className="text-black">🇩🇪 Deutsch</option>
+            <option value="es" className="text-black">🇪🇸 Español</option>
+            <option value="uk" className="text-black">🇺🇦 Українська</option>
+            <option value="ru" className="text-black">🇷🇺 Русский</option>
+            <option value="ar" className="text-black">🇸🇦 العربية</option>
+            <option value="tr" className="text-black">🇹🇷 Türkçe</option>
           </select>
         </div>
       </div>
